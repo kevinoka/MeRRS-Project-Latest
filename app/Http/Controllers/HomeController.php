@@ -25,4 +25,10 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function show(Request $request,$id)
+    {
+        $blog = TbBlog::find($id);
+        return view('site.show',compact('home'))->renderSections()['content'];
+    }
 }

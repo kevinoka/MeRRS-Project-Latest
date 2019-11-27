@@ -24,6 +24,7 @@
     },
     "dependencies": {
         "@fullcalendar/core": "^4.3.1",
-        "@fullcalendar/daygrid": "^4.3.0"
+        "@fullcalendar/daygrid": "^4.3.0",
+        "timepicker": "^1.12.0"
     }
 }

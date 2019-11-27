@@ -19,4 +19,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-//Route::get('/home', 'FullCalendarController@index')->name('home');
+
+
+Route::resource('requestpage','RequestPageController'); //tambahkan baris ini

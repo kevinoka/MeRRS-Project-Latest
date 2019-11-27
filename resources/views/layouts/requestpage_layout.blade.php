@@ -11,35 +11,47 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link href={{asset('plugins/fontawesome-free/css/all.min.css')}} rel='stylesheet' />
+  <!-- <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css"> -->
 
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  
 
   <!-- Tempusdominus Bbootstrap 4 -->
-  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"> -->
+  <link href={{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}} rel='stylesheet' />
 
   <!-- iCheck -->
-  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css"> -->
+  <link href={{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}} rel='stylesheet' />
+  
 
   <!-- JQVMap -->
-  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+  <!-- <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css"> -->
+  <link href={{asset('plugins/jqvmap/jqvmap.min.css')}} rel='stylesheet' />
 
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- <link rel="stylesheet" href="dist/css/adminlte.min.css"> -->
+  <link href={{asset('dist/css/adminlte.min.css')}} rel='stylesheet' />
 
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css"> -->
+  <link href={{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}} rel='stylesheet' />
 
   <!-- Daterange picker -->
-  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <!-- <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css"> -->
+  <link href={{asset('plugins/daterangepicker/daterangepicker.css')}} rel='stylesheet' />
 
   <!-- summernote -->
-  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
+  <!-- <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css"> -->
+  <link href={{asset('plugins/summernote/summernote-bs4.css')}} rel='stylesheet' />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -112,7 +124,7 @@
   <aside class="main-sidebar sidebar-dark-info elevation-4">
     <!-- Brand Logo -->
     <a href="" class="brand-link">
-      <img src="img/logo-idxsti128.png" alt="IDXSTI Logo" class="brand-image img-circle elevation-3"
+      <img src="/img/logo-idxsti128.png" alt="IDXSTI Logo" class="brand-image img-circle elevation-3"
            style="opacity: .9">
       <span class="brand-text">&nbsp IDXSTI</span>
     </a>
@@ -124,16 +136,16 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+          <li class="nav-item">
+            <a href="{{ route('home') }}" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item has-treeview menu-open">
+            <a href="{{ route('requestpage.index') }}" class="nav-link active">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Request
@@ -210,5 +222,7 @@
     <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('dist/js/demo.js') }}"></script>
+
+
   </body>
 </html>

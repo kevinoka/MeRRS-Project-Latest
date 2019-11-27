@@ -1,4 +1,4 @@
-@extends('layouts.adminDashboard')
+@extends('layouts.admin_dashboard')
 
 @section('content')
 <div class="content-header">
@@ -56,16 +56,24 @@
 </section>
 <!-- /.content -->
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div class="content-header">
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
         <h1 class="m-0 text-dark">Schedule</h1>
       </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="{{ route('requestpage.create') }}" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp; Make New Reservation</a></li>
+        </ol>
+      </div><!-- /.col -->
     </div><!-- /.row -->
   </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->
+
 
 
 <!-- Main content -->
@@ -126,37 +134,6 @@
   </div>
 </div>
 
-<div class="content-header">
-  <div class="container-fluid">
-    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                <thead>
-                    <tr>
-                        <th align="center">No.</th>
-                        <th data-field="kode">Kode</th>
-                        <th data-field="nama_dokumen">Judul</th>
-                        <th data-field="jenis_dokumen">Jenis</th>
-                        <th data-field="status_dokumen">Status</th>
-                        <th data-field="unit">Unit</th>
-                        <th data-field="Revisi">Revisi Ke-</th>
-                        <th data-field="entry_date">Waktu</th>
-                        <th data-field="keterangan">Keterangan</th>
-                        <th colspan="1">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
 
-                </tbody>
-            </table>
-
-            <script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-            responsive: true
-        });
-    });
-    </script>
-  </div><!-- /.container-fluid -->
-</div>
-<!-- /.content-header -->
 
 @endsection
