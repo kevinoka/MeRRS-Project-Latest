@@ -21,9 +21,7 @@ class RequestPageController extends Controller
      */
     public function index()
     {
-        //
-        //$userId = Auth::user()->id;
-        ////$allrequests = RequestPage::latest()->get();
+
         $allrequests = RequestPage::orderBy('id', 'ASC')->get();
         return view('admin.requestpage',compact('allrequests'));
 
@@ -113,7 +111,6 @@ class RequestPageController extends Controller
 
     public function declinal($id)
     {
-        //$data = RequestPage::find($id);
         $data = RequestPage::find($id);
         if($data->status == 0)
         {
@@ -140,7 +137,7 @@ class RequestPageController extends Controller
         return redirect()->route('requestpage.index')->with('alert-success','Request has been deleted!');
     }
 
-    //delete temporarily
+    //soft delete
     public function deletos($id)
     {
     	$data = RequestPage::find($id);
