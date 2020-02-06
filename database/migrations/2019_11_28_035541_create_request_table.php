@@ -15,15 +15,20 @@ class CreateRequestTable extends Migration
     {
         Schema::create('request', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->dateTime('schedule');
+            $table->bigInteger('user_id')->unsigned();
+            $table->dateTime('start');
+            $table->dateTime('end');
             $table->string('title');
             $table->string('room');
             $table->integer('personNum');
             $table->string('frequency');
             $table->longText('description');
             $table->string('requestedBy');
-            $table->integer('action');
+            $table->integer('status')->default(0); //there's a change on data type
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

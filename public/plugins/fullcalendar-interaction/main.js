@@ -6,8 +6,8 @@ Docs & License: https://fullcalendar.io/
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@fullcalendar/core')) :
-    typeof define === 'function' && define.amd ? define(['exports', '@fullcalendar/core'], factory) :
-    (global = global || self, factory(global.FullCalendarInteraction = {}, global.FullCalendar));
+        typeof define === 'function' && define.amd ? define(['exports', '@fullcalendar/core'], factory) :
+            (global = global || self, factory(global.FullCalendarInteraction = {}, global.FullCalendar));
 }(this, function (exports, core) { 'use strict';
 
     /*! *****************************************************************************
@@ -401,7 +401,7 @@ Docs & License: https://fullcalendar.io/
             var finalSourceElRect = this.sourceEl.getBoundingClientRect(); // because autoscrolling might have happened
             mirrorEl.style.transition =
                 'top ' + revertDuration + 'ms,' +
-                    'left ' + revertDuration + 'ms';
+                'left ' + revertDuration + 'ms';
             core.applyStyle(mirrorEl, {
                 left: finalSourceElRect.left,
                 top: finalSourceElRect.top
@@ -665,7 +665,7 @@ Docs & License: https://fullcalendar.io/
             var edgeThreshold = this.edgeThreshold;
             var invDistance = edgeThreshold - edge.distance;
             var velocity = // the closer to the edge, the faster we scroll
-             (invDistance * invDistance) / (edgeThreshold * edgeThreshold) * // quadratic
+                (invDistance * invDistance) / (edgeThreshold * edgeThreshold) * // quadratic
                 this.maxVelocity * seconds;
             var sign = 1;
             switch (edge.name) {
@@ -1080,14 +1080,14 @@ Docs & License: https://fullcalendar.io/
                     var width = origRect.right - origRect.left;
                     var height = origRect.bottom - origRect.top;
                     if (
-                    // must be within the element's bounds
-                    positionLeft >= 0 && positionLeft < width &&
+                        // must be within the element's bounds
+                        positionLeft >= 0 && positionLeft < width &&
                         positionTop >= 0 && positionTop < height) {
                         var hit = component.queryHit(positionLeft, positionTop, width, height);
                         if (hit &&
                             (
-                            // make sure the hit is within activeRange, meaning it's not a deal cell
-                            !component.props.dateProfile || // hack for DayTile
+                                // make sure the hit is within activeRange, meaning it's not a deal cell
+                                !component.props.dateProfile || // hack for DayTile
                                 core.rangeContainsRange(component.props.dateProfile.activeRange, hit.dateSpan.range)) &&
                             (!bestHit || hit.layer > bestHit.layer)) {
                             // TODO: better way to re-orient rectangle
@@ -1420,7 +1420,7 @@ Docs & License: https://fullcalendar.io/
                                 __assign(transformed, transformer(validMutation, initialCalendar_1));
                             }
                             var eventDropArg = __assign({}, transformed, { el: ev.subjectEl, delta: validMutation.datesDelta, oldEvent: eventApi, event: new core.EventApi(// the data AFTER the mutation
-                                initialCalendar_1, mutatedRelevantEvents.defs[eventDef.defId], eventInstance ? mutatedRelevantEvents.instances[eventInstance.instanceId] : null), revert: function () {
+                                    initialCalendar_1, mutatedRelevantEvents.defs[eventDef.defId], eventInstance ? mutatedRelevantEvents.instances[eventInstance.instanceId] : null), revert: function () {
                                     initialCalendar_1.dispatch({
                                         type: 'MERGE_EVENTS',
                                         eventStore: relevantEvents_1
@@ -1452,13 +1452,13 @@ Docs & License: https://fullcalendar.io/
                                 });
                             }
                             var dropArg = __assign({}, receivingCalendar.buildDatePointApi(finalHit.dateSpan), { draggedEl: ev.subjectEl, jsEvent: ev.origEvent, view: finalHit.component // should this be finalHit.component.view? See #4644
-                             });
+                            });
                             receivingCalendar.publiclyTrigger('drop', [dropArg]);
                             receivingCalendar.publiclyTrigger('eventReceive', [
                                 {
                                     draggedEl: ev.subjectEl,
                                     event: new core.EventApi(// the data AFTER the mutation
-                                    receivingCalendar, mutatedRelevantEvents.defs[eventDef.defId], mutatedRelevantEvents.instances[eventInstance.instanceId]),
+                                        receivingCalendar, mutatedRelevantEvents.defs[eventDef.defId], mutatedRelevantEvents.instances[eventInstance.instanceId]),
                                     view: finalHit.component // should this be finalHit.component.view? See #4644
                                 }
                             ]);
@@ -1689,7 +1689,7 @@ Docs & License: https://fullcalendar.io/
                             endDelta: _this.validMutation.endDelta || core.createDuration(0),
                             prevEvent: eventApi,
                             event: new core.EventApi(// the data AFTER the mutation
-                            calendar, mutatedRelevantEvents.defs[eventDef.defId], eventInstance ? mutatedRelevantEvents.instances[eventInstance.instanceId] : null),
+                                calendar, mutatedRelevantEvents.defs[eventDef.defId], eventInstance ? mutatedRelevantEvents.instances[eventInstance.instanceId] : null),
                             revert: function () {
                                 calendar.dispatch({
                                     type: 'MERGE_EVENTS',
@@ -1949,7 +1949,7 @@ Docs & License: https://fullcalendar.io/
             __assign(defProps, transform(dateSpan, dragMeta));
         }
         var def = core.parseEventDef(defProps, dragMeta.sourceId, dateSpan.allDay, calendar.opt('forceEventDuration') || Boolean(dragMeta.duration), // hasEnd
-        calendar);
+            calendar);
         var start = dateSpan.range.start;
         // only rely on time info if drop zone is all-day,
         // otherwise, we already know the time
@@ -2099,8 +2099,8 @@ Docs & License: https://fullcalendar.io/
         function ThirdPartyDraggable(containerOrSettings, settings) {
             var containerEl = document;
             if (
-            // wish we could just test instanceof EventTarget, but doesn't work in IE11
-            containerOrSettings === document ||
+                // wish we could just test instanceof EventTarget, but doesn't work in IE11
+                containerOrSettings === document ||
                 containerOrSettings instanceof Element) {
                 containerEl = containerOrSettings;
                 settings = settings || {};

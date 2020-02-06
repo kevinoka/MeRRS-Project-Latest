@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace MeRRS\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use MeRRS\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Support\Facades\Auth;
 
 class ResetPasswordController extends Controller
 {
@@ -25,5 +26,22 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        if (Auth::check() && Auth::user()->role->id == 1)
+        {
+            $this->redirectTo = route('admin.dashboard');
+        } else
+        {
+            $this->redirectTo = route('member.dashboard');
+        }
+        $this->middleware('guest');
+    }
 }

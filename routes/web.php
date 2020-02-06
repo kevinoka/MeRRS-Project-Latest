@@ -11,14 +11,40 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
-    //return view('welcome');
     return view('auth/login');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'=>['auth','admin']], function () {
+    Route::get('dashboard','DashboardController@index')->name('dashboard');
+    Route::resource('dashboard', 'DashboardController');
+
+    Route::get('/load-events', 'EventController@loadEvents')->name('routeLoadEvents');
+
+    Route::resource('requestpage','RequestPageController'); //tambahkan baris ini
+    Route::get('/requestpage/deletos/{id}', 'RequestPageController@deletos')->name('requestpage.deletos');
+
+    Route::get('pending/requestpage', 'RequestPageController@pending')->name('requestpage.pending');
+    Route::get('/requestpage/{id}/approve', 'RequestPageController@approval')->name('requestpage.approve');
+    Route::get('/requestpage/{id}/decline', 'RequestPageController@declinal')->name('requestpage.decline');
+});
+
+Route::group(['as'=>'member.','prefix'=>'member','namespace'=>'Member','middleware'=>['auth','member']], function () {
+    Route::get('dashboard','DashboardController@index')->name('dashboard');
+    Route::resource('dashboard', 'DashboardController');
+
+    Route::get('/load-events', 'EventController@loadEvents')->name('routeLoadEvents');
 
 
-Route::resource('requestpage','RequestPageController'); //tambahkan baris ini
+    Route::resource('requestpage','RequestPageController'); //tambahkan baris ini
+    Route::get('/requestpage/deletos/{id}', 'RequestPageController@deletos')->name('requestpage.deletos');
+
+    Route::get('pending/requestpage', 'RequestPageController@pending')->name('requestpage.pending');
+});
+

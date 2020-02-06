@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace MeRRS\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\User;
+use MeRRS\Http\Controllers\Controller;
+use MeRRS\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo='/login';
 
     /**
      * Create a new controller instance.
@@ -37,6 +38,13 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+        if (Auth::check() && Auth::user()->role->id == 1)
+        {
+            $this->redirectTo = route('admin.dashboard');
+        } else
+        {
+            $this->redirectTo = route('member.dashboard.index');
+        }
         $this->middleware('guest');
     }
 
@@ -59,7 +67,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return \MeRRS\User
      */
     protected function create(array $data)
     {

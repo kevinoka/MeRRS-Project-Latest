@@ -165,15 +165,16 @@ return [
         /*
          * Package Service Providers...
          */
+        Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        MeRRS\Providers\AppServiceProvider::class,
+        MeRRS\Providers\AuthServiceProvider::class,
+        // MeRRS\Providers\BroadcastServiceProvider::class,
+        MeRRS\Providers\EventServiceProvider::class,
+        MeRRS\Providers\RouteServiceProvider::class,
 
     ],
 

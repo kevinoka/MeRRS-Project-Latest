@@ -264,10 +264,9 @@ Docs & License: https://fullcalendar.io/
         // Computes a default event time formatting string if `eventTimeFormat` is not explicitly defined
         SimpleDayGridEventRenderer.prototype.computeEventTimeFormat = function () {
             return {
-                hour: 'numeric',
+                hour: '2-digit',
                 minute: '2-digit',
-                omitZeroMinute: true,
-                meridiem: 'narrow'
+                hour12: false
             };
         };
         SimpleDayGridEventRenderer.prototype.computeDisplayEventEnd = function () {
@@ -562,14 +561,14 @@ Docs & License: https://fullcalendar.io/
                 '</div>');
             trEl = skeletonEl.getElementsByTagName('tr')[0];
             if (startCol > 0) {
-                core.appendToElement(trEl, 
+                core.appendToElement(trEl,
                 // will create (startCol + 1) td's
                 new Array(startCol + 1).join(EMPTY_CELL_HTML));
             }
             seg.el.colSpan = endCol - startCol;
             trEl.appendChild(seg.el);
             if (endCol < colCnt) {
-                core.appendToElement(trEl, 
+                core.appendToElement(trEl,
                 // will create (colCnt - endCol) td's
                 new Array(colCnt - endCol + 1).join(EMPTY_CELL_HTML));
             }

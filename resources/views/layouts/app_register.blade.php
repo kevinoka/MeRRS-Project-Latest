@@ -18,12 +18,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link href={{asset('css/style.css')}} rel='stylesheet' />
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <img src="{{ url('/img/logo-idxsti.png') }}" alt="..." width="10%">
+                <img src="{{ url('/img/logo-idxsti.png') }}" alt="..." width="9%">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     &nbsp; &nbsp; {{ config('APP_NAME', 'Meeting Room Reservation System') }}
                 </a>

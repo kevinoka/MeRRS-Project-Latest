@@ -12,34 +12,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link href={{asset('plugins/fontawesome-free/css/all.min.css')}} rel='stylesheet' />
 
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
   <!-- Tempusdominus Bbootstrap 4 -->
-  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+{{--    <link href={{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}} rel='stylesheet' />--}}
 
   <!-- iCheck -->
-  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link href={{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}} rel='stylesheet' />
 
   <!-- JQVMap -->
-  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+    <link href={{asset('plugins/jqvmap/jqvmap.min.css')}} rel='stylesheet' />
 
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <link href={{asset('dist/css/adminlte.min.css')}} rel='stylesheet' />
 
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+    <link href={{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}} rel='stylesheet' />
 
   <!-- summernote -->
-  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
+    <link href={{asset('plugins/summernote/summernote-bs4.css')}} rel='stylesheet' />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://rawgit.com/tempusdominus/bootstrap-4/master/build/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -53,7 +55,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li>
-        <a class="nav-link">Meeting Room Reservation System </a>
+        <a class="nav-link" style="cursor: context-menu;">Meeting Room Reservation System </a>
       </li>
     </ul>
 
@@ -88,14 +90,13 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
+                                         document.getElementById('logout-form').submit();"><i class="fa fa-sign-out fa-fw"></i>&nbsp;
                             {{ __('Logout') }}
                         </a>
-
-                        <a class="dropdown-item" href="#"
-                           onclick="">
-                            {{ __('My Profile') }}
-                        </a>
+{{--                        <a class="dropdown-item" href="#"--}}
+{{--                           onclick=""><i class="fa fa-user fa-fw"></i>&nbsp;--}}
+{{--                            {{ __('My Profile') }}--}}
+{{--                        </a>--}}
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
@@ -112,9 +113,9 @@
   <aside class="main-sidebar sidebar-dark-info elevation-4">
     <!-- Brand Logo -->
     <a href="" class="brand-link">
-      <img src="img/logo-idxsti128.png" alt="IDXSTI Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .9">
-      <span class="brand-text">&nbsp IDXSTI</span>
+      <img src="{{asset('img/idxsti-logo-icon.png')}}" alt="IDXSTI Logo" class="brand-image img-circle elevation-3"
+           style="opacity: .9; background-color: #FFFFFF; padding: 0.06em;">
+      <span class="brand-text">&nbspIDXSTI</span>
     </a>
 
     <!-- Sidebar -->
@@ -133,21 +134,14 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('requestpage.index') }}" class="nav-link">
+            <a href="{{ route('admin.requestpage.index') }}" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Request
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>
-                Help
-              </p>
-            </a>
-          </li>
+        </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -165,7 +159,7 @@
     <b>Copyright &copy; 2019 <a href="http://idxsti.co.id">IDXSTI</a>.</b>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 0.0.1
+      <b>Version</b> 1.0.0
     </div>
   </footer>
 
@@ -185,8 +179,6 @@
     <script>
       $.widget.bridge('uibutton', $.ui.button)
     </script>
-    <!-- Bootstrap 4 -->
-    <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- ChartJS -->
     <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
     <!-- Sparkline -->
@@ -196,20 +188,52 @@
     <script src="{{ asset('plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
     <!-- jQuery Knob Chart -->
     <script src="{{ asset('plugins/jquery-knob/jquery.knob.min.js') }}"></script>
-    <!-- daterangepicker -->
-    <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+{{--    <script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>--}}
     <!-- Summernote -->
     <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
     <!-- overlayScrollbars -->
-    <!-- <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script> -->
+    <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('dist/js/adminlte.js') }}"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="{{ asset('dist/js/demo.js') }}"></script>
+
+
+{{--    <!-- For modal bootstrap post -->--}}
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- For the Tempusdominus datetimepicker -->
+{{--    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>--}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://rawgit.com/tempusdominus/bootstrap-4/master/build/js/tempusdominus-bootstrap-4.min.js"></script>
+
+
   </body>
+
+    <script>
+        $(function() {
+            var today = new Date();
+            $('#datetimepicker1').datetimepicker({
+                format: 'YYYY-MM-DD HH:mm',
+                autoclose: true,
+                daysOfWeekDisabled: [0],
+                startDate: today,
+                useCurrent: false
+            });
+            var today = new Date();
+            $('#datetimepicker2').datetimepicker({
+                format: 'YYYY-MM-DD HH:mm',
+                autoclose: true,
+                daysOfWeekDisabled: [0],
+                startDate: today,
+                useCurrent: false
+            });
+        });
+
+    </script>
+
 </html>

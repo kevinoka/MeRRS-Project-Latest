@@ -113,9 +113,9 @@ Docs & License: https://fullcalendar.io/
         // like "4:00am"
         ListEventRenderer.prototype.computeEventTimeFormat = function () {
             return {
-                hour: 'numeric',
+                hour: '2-digit',
                 minute: '2-digit',
-                meridiem: 'short'
+                hour12: false
             };
         };
         return ListEventRenderer;

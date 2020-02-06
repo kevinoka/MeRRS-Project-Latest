@@ -6,8 +6,8 @@ Docs & License: https://fullcalendar.io/
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@fullcalendar/core'), require('@fullcalendar/daygrid')) :
-    typeof define === 'function' && define.amd ? define(['exports', '@fullcalendar/core', '@fullcalendar/daygrid'], factory) :
-    (global = global || self, factory(global.FullCalendarTimeGrid = {}, global.FullCalendar, global.FullCalendarDayGrid));
+        typeof define === 'function' && define.amd ? define(['exports', '@fullcalendar/core', '@fullcalendar/daygrid'], factory) :
+            (global = global || self, factory(global.FullCalendarTimeGrid = {}, global.FullCalendar, global.FullCalendarDayGrid));
 }(this, function (exports, core, daygrid) { 'use strict';
 
     /*! *****************************************************************************
@@ -162,16 +162,16 @@ Docs & License: https://fullcalendar.io/
                 '<div class="fc-content">' +
                 (timeText ?
                     '<div class="fc-time"' +
-                        ' data-start="' + core.htmlEscape(startTimeText) + '"' +
-                        ' data-full="' + core.htmlEscape(fullTimeText) + '"' +
-                        '>' +
-                        '<span>' + core.htmlEscape(timeText) + '</span>' +
-                        '</div>' :
+                    ' data-start="' + core.htmlEscape(startTimeText) + '"' +
+                    ' data-full="' + core.htmlEscape(fullTimeText) + '"' +
+                    '>' +
+                    '<span>' + core.htmlEscape(timeText) + '</span>' +
+                    '</div>' :
                     '') +
                 (eventDef.title ?
                     '<div class="fc-title">' +
-                        core.htmlEscape(eventDef.title) +
-                        '</div>' :
+                    core.htmlEscape(eventDef.title) +
+                    '</div>' :
                     '') +
                 '</div>' +
                 /* TODO: write CSS for this
@@ -230,7 +230,7 @@ Docs & License: https://fullcalendar.io/
                 // calculate the backwardCoord from the forwardCoord. consider the series
                 seg.backwardCoord = seg.forwardCoord -
                     (seg.forwardCoord - seriesBackwardCoord) / // available width for series
-                        (seriesBackwardPressure + 1); // # of segments in the series
+                    (seriesBackwardPressure + 1); // # of segments in the series
                 // use this segment's coordinates to computed the coordinates of the less-pressurized
                 // forward segments
                 for (i = 0; i < forwardSegs.length; i++) {
@@ -473,8 +473,8 @@ Docs & License: https://fullcalendar.io/
             _this.processOptions();
             el.innerHTML =
                 '<div class="fc-bg"></div>' +
-                    '<div class="fc-slats"></div>' +
-                    '<hr class="fc-divider ' + _this.theme.getClass('widgetHeader') + '" style="display:none" />';
+                '<div class="fc-slats"></div>' +
+                '<hr class="fc-divider ' + _this.theme.getClass('widgetHeader') + '" style="display:none" />';
             _this.rootBgContainerEl = el.querySelector('.fc-bg');
             _this.slatContainerEl = el.querySelector('.fc-slats');
             _this.bottomRuleEl = el.querySelector('.fc-divider');
@@ -574,8 +574,8 @@ Docs & License: https://fullcalendar.io/
             var theme = this.theme;
             this.slatContainerEl.innerHTML =
                 '<table class="' + theme.getClass('tableGrid') + '">' +
-                    this.renderSlatRowHtml(dateProfile) +
-                    '</table>';
+                this.renderSlatRowHtml(dateProfile) +
+                '</table>';
             this.slatEls = core.findElements(this.slatContainerEl, 'tr');
             this.slatPositions = new core.PositionCache(this.el, this.slatEls, false, true // vertical
             );
@@ -597,20 +597,20 @@ Docs & License: https://fullcalendar.io/
                 isLabeled = core.wholeDivideDurations(slotIterator, this.labelInterval) !== null;
                 axisHtml =
                     '<td class="fc-axis fc-time ' + theme.getClass('widgetContent') + '">' +
-                        (isLabeled ?
-                            '<span>' + // for matchCellWidths
-                                core.htmlEscape(dateEnv.format(slotDate, this.labelFormat)) +
-                                '</span>' :
-                            '') +
-                        '</td>';
+                    (isLabeled ?
+                        '<span>' + // for matchCellWidths
+                        core.htmlEscape(dateEnv.format(slotDate, this.labelFormat)) +
+                        '</span>' :
+                        '') +
+                    '</td>';
                 html +=
                     '<tr data-time="' + core.formatIsoTimeString(slotDate) + '"' +
-                        (isLabeled ? '' : ' class="fc-minor"') +
-                        '>' +
-                        (!isRtl ? axisHtml : '') +
-                        '<td class="' + theme.getClass('widgetContent') + '"></td>' +
-                        (isRtl ? axisHtml : '') +
-                        '</tr>';
+                    (isLabeled ? '' : ' class="fc-minor"') +
+                    '>' +
+                    (!isRtl ? axisHtml : '') +
+                    '<td class="' + theme.getClass('widgetContent') + '"></td>' +
+                    (isRtl ? axisHtml : '') +
+                    '</tr>';
                 slotTime = core.addDurations(slotTime, this.slotDuration);
                 slotIterator = core.addDurations(slotIterator, this.slotDuration);
             }
@@ -621,12 +621,12 @@ Docs & License: https://fullcalendar.io/
             var bgRow = new daygrid.DayBgRow(this.context);
             this.rootBgContainerEl.innerHTML =
                 '<table class="' + theme.getClass('tableGrid') + '">' +
-                    bgRow.renderHtml({
-                        cells: cells,
-                        dateProfile: dateProfile,
-                        renderIntroHtml: this.renderProps.renderBgIntroHtml
-                    }) +
-                    '</table>';
+                bgRow.renderHtml({
+                    cells: cells,
+                    dateProfile: dateProfile,
+                    renderIntroHtml: this.renderProps.renderBgIntroHtml
+                }) +
+                '</table>';
             this.colEls = core.findElements(this.el, '.fc-day, .fc-disabled-day');
             for (var col = 0; col < this.colCnt; col++) {
                 this.publiclyTrigger('dayRender', [
@@ -641,7 +641,7 @@ Docs & License: https://fullcalendar.io/
                 this.colEls.reverse();
             }
             this.colPositions = new core.PositionCache(this.el, this.colEls, true, // horizontal
-            false);
+                false);
             this.renderContentSkeleton();
             this.isColSizesDirty = true;
         };
@@ -973,7 +973,7 @@ Docs & License: https://fullcalendar.io/
                     return '' +
                         '<th class="fc-axis fc-week-number ' + theme.getClass('widgetHeader') + '" ' + _this.axisStyleAttr() + '>' +
                         core.buildGotoAnchorHtml(// aside from link, important for matchCellWidths
-                        _this, { date: range.start, type: 'week', forceOff: dayCnt > 1 }, core.htmlEscape(weekText) // inner HTML
+                            _this, { date: range.start, type: 'week', forceOff: dayCnt > 1 }, core.htmlEscape(weekText) // inner HTML
                         ) +
                         '</th>';
                 }
@@ -1013,7 +1013,7 @@ Docs & License: https://fullcalendar.io/
             _this.el.classList.add('fc-timeGrid-view');
             _this.el.innerHTML = _this.renderSkeletonHtml();
             _this.scroller = new core.ScrollComponent('hidden', // overflow x
-            'auto' // overflow y
+                'auto' // overflow y
             );
             var timeGridWrapEl = _this.scroller.el;
             _this.el.querySelector('.fc-body > tr > td').appendChild(timeGridWrapEl);
@@ -1026,13 +1026,13 @@ Docs & License: https://fullcalendar.io/
             });
             if (_this.opt('allDaySlot')) { // should we display the "all-day" area?
                 _this.dayGrid = new daygrid.DayGrid(// the all-day subcomponent of this view
-                _this.context, _this.el.querySelector('.fc-day-grid'), {
-                    renderNumberIntroHtml: _this.renderDayGridIntroHtml,
-                    renderBgIntroHtml: _this.renderDayGridBgIntroHtml,
-                    renderIntroHtml: _this.renderDayGridIntroHtml,
-                    colWeekNumbersVisible: false,
-                    cellWeekNumbersVisible: false
-                });
+                    _this.context, _this.el.querySelector('.fc-day-grid'), {
+                        renderNumberIntroHtml: _this.renderDayGridIntroHtml,
+                        renderBgIntroHtml: _this.renderDayGridBgIntroHtml,
+                        renderIntroHtml: _this.renderDayGridIntroHtml,
+                        colWeekNumbersVisible: false,
+                        cellWeekNumbersVisible: false
+                    });
                 // have the day-grid extend it's coordinate area over the <hr> dividing the two grids
                 var dividerEl = _this.el.querySelector('.fc-divider');
                 _this.dayGrid.bottomCoordPadding = dividerEl.getBoundingClientRect().height;
@@ -1057,17 +1057,17 @@ Docs & License: https://fullcalendar.io/
                 '<table class="' + theme.getClass('tableGrid') + '">' +
                 (this.opt('columnHeader') ?
                     '<thead class="fc-head">' +
-                        '<tr>' +
-                        '<td class="fc-head-container ' + theme.getClass('widgetHeader') + '">&nbsp;</td>' +
-                        '</tr>' +
-                        '</thead>' :
+                    '<tr>' +
+                    '<td class="fc-head-container ' + theme.getClass('widgetHeader') + '">&nbsp;</td>' +
+                    '</tr>' +
+                    '</thead>' :
                     '') +
                 '<tbody class="fc-body">' +
                 '<tr>' +
                 '<td class="' + theme.getClass('widgetContent') + '">' +
                 (this.opt('allDaySlot') ?
                     '<div class="fc-day-grid"></div>' +
-                        '<hr class="fc-divider ' + theme.getClass('widgetHeader') + '" />' :
+                    '<hr class="fc-divider ' + theme.getClass('widgetHeader') + '" />' :
                     '') +
                 '</td>' +
                 '</tr>' +

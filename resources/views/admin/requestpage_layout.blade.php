@@ -11,46 +11,34 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
   <!-- Font Awesome -->
   <link href={{asset('plugins/fontawesome-free/css/all.min.css')}} rel='stylesheet' />
-  <!-- <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css"> -->
 
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  
 
-  <!-- Tempusdominus Bbootstrap 4 -->
-  <!-- <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"> -->
+  <!-- Tempusdominus Bootstrap 4 -->
   <link href={{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}} rel='stylesheet' />
 
   <!-- iCheck -->
-  <!-- <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css"> -->
   <link href={{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}} rel='stylesheet' />
-  
-
-  <!-- JQVMap -->
-  <!-- <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css"> -->
-  <link href={{asset('plugins/jqvmap/jqvmap.min.css')}} rel='stylesheet' />
 
   <!-- Theme style -->
-  <!-- <link rel="stylesheet" href="dist/css/adminlte.min.css"> -->
   <link href={{asset('dist/css/adminlte.min.css')}} rel='stylesheet' />
 
   <!-- overlayScrollbars -->
-  <!-- <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css"> -->
   <link href={{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}} rel='stylesheet' />
 
-  <!-- Daterange picker -->
-  <!-- <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css"> -->
-  <link href={{asset('plugins/daterangepicker/daterangepicker.css')}} rel='stylesheet' />
-
   <!-- summernote -->
-  <!-- <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css"> -->
   <link href={{asset('plugins/summernote/summernote-bs4.css')}} rel='stylesheet' />
 
+  <!-- Daterange picker -->
+  <link href={{asset('plugins/daterangepicker/daterangepicker.css')}} rel='stylesheet' />
+
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
+  <link href={{asset('css/style.css')}} rel='stylesheet' />
 
 </head>
 
@@ -65,7 +53,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li>
-        <a class="nav-link">Meeting Room Reservation System </a>
+        <a class="nav-link" style="cursor: context-menu;">Meeting Room Reservation System </a>
       </li>
     </ul>
 
@@ -100,14 +88,14 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
+                                         document.getElementById('logout-form').submit();"><i class="fa fa-sign-out-alt fa-fw"></i>&nbsp;
                             {{ __('Logout') }}
                         </a>
 
-                        <a class="dropdown-item" href="#"
-                           onclick="">
-                            {{ __('My Profile') }}
-                        </a>
+{{--                        <a class="dropdown-item" href="#"--}}
+{{--                           onclick=""><i class="fa fa-user fa-fw"></i>&nbsp;--}}
+{{--                            {{ __('My Profile') }}--}}
+{{--                        </a>--}}
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
@@ -123,10 +111,10 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-info elevation-4">
     <!-- Brand Logo -->
-    <a href="" class="brand-link">
-      <img src="/img/logo-idxsti128.png" alt="IDXSTI Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .9">
-      <span class="brand-text">&nbsp IDXSTI</span>
+    <a href="{{ route('admin.dashboard.index') }}" class="brand-link">
+        <img src="{{asset('img/idxsti-logo-icon.png')}}" alt="IDXSTI Logo" class="brand-image img-circle elevation-3"
+             style="opacity: .9; background-color: #FFFFFF; padding: 0.06em;">
+      <span class="brand-text">&nbspIDXSTI</span>
     </a>
 
     <!-- Sidebar -->
@@ -137,7 +125,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{ route('home') }}" class="nav-link">
+            <a href="{{ route('admin.dashboard.index') }}" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -145,21 +133,13 @@
             </a>
           </li>
           <li class="nav-item has-treeview menu-open">
-            <a href="{{ route('requestpage.index') }}" class="nav-link active">
+            <a href="{{ route('admin.requestpage.index') }}" class="nav-link active">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Request
               </p>
             </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>
-                Help
-              </p>
-            </a>
-          </li>
+        </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -176,7 +156,7 @@
     <b>Copyright &copy; 2019 <a href="http://idxsti.co.id">IDXSTI</a>.</b>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 0.0.1
+      <b>Version</b> 1.0.0
     </div>
   </footer>
 
@@ -202,27 +182,50 @@
     <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
     <!-- Sparkline -->
     <script src="{{ asset('plugins/sparklines/sparkline.js') }}"></script>
-    <!-- JQVMap -->
-    <script src="{{ asset('plugins/jqvmap/jquery.vmap.min.js') }}"></script>
-    <script src="{{ asset('plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
-    <!-- jQuery Knob Chart -->
     <script src="{{ asset('plugins/jquery-knob/jquery.knob.min.js') }}"></script>
-    <!-- daterangepicker -->
-    <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
-    <!-- Tempusdominus Bootstrap 4 -->
-    <script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
     <!-- Summernote -->
     <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
     <!-- overlayScrollbars -->
-    <!-- <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script> -->
+    <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('dist/js/adminlte.js') }}"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="{{ asset('dist/js/demo.js') }}"></script>
+
+    <!-- JS and CSS for Datatable -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+
+</body>
 
 
-  </body>
+  <script>
+    $('#editModal').on('show.bs.modal', function (event) {
+
+      var button = $(event.relatedTarget) // Button that triggered the modal
+      var start = button.data('mystart') // Extract info from data-* attributes
+      var end = button.data('myend')
+      var title = button.data('mytitle')
+      var room = button.data('myroom')
+      var personNum = button.data('mypersonnum')
+      var frequency = button.data('myfrequency')
+      var description = button.data('mydescription')
+      var requestedBy = button.data('myrequestedby')
+
+      var modal = $(this)
+
+      modal.find('.modal-body #start').val(start);
+      modal.find('.modal-body #end').val(end);
+      modal.find('.modal-body #timeFrom').val(timeFrom);
+      modal.find('.modal-body #timeEnd').val(timeEnd);
+      modal.find('.modal-body #title').val(title);
+      modal.find('.modal-body #room').val(room);
+      modal.find('.modal-body #personNum').val(personNum);
+      modal.find('.modal-body #frequency').val(frequency);
+      modal.find('.modal-body #description').val(description);
+      modal.find('.modal-body #requestedBy').val(requestedBy);
+    })
+  </script>
+
 </html>

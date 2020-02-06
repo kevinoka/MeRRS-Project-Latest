@@ -69,6 +69,7 @@
 .fc-list-item-time {
   white-space: nowrap;
   width: 1px;
+  cursor: pointer;
 }
 
 /* make the dot closer to the event title */
