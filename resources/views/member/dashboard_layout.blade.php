@@ -222,7 +222,8 @@
                 format: 'YYYY-MM-DD HH:mm',
                 autoclose: true,
                 daysOfWeekDisabled: [0],
-                startDate: today
+                startDate: today,
+                useCurrent: false
             });
         });
     </script>

@@ -21,7 +21,7 @@ class CreateRequestTable extends Migration
             $table->string('title');
             $table->string('room');
             $table->integer('personNum');
-            $table->string('frequency');
+            $table->string('frequency')->default('One-time only');
             $table->longText('description');
             $table->string('requestedBy');
             $table->integer('status')->default(0); //there's a change on data type

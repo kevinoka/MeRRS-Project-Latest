@@ -64,7 +64,7 @@
                 <th class="align-middle text-center">Title</th>
                 <th class="align-middle text-center">Room</th>
                 <th class="align-middle text-center">Num. of Person</th>
-                <th class="align-middle text-center">Freq</th>
+{{--                <th class="align-middle text-center">Freq</th>--}}
                 <th class="align-middle text-center">Description</th>
                 <th class="align-middle text-center">Requested by</th>
                 <th class="align-middle text-center">Status</th>
@@ -82,7 +82,7 @@
                         <td>{{ $req->title }}</td>
                         <td>{{ $req->room }}</td>
                         <td class="text-center">{{ $req->personNum }}</td>
-                        <td>{{ $req->frequency }}</td>
+{{--                        <td>{{ $req->frequency }}</td>--}}
                         <td>{{ $req->description }}</td>
                         <td>{{ $req->user->name }}</td>
                         <td class="text-center">
@@ -141,7 +141,7 @@
                         "search": "Filter records:"
                     },
                     "columnDefs": [ {
-                        "targets": 10,
+                        "targets": 9,
                         "orderable": false
                     } ]
                 });

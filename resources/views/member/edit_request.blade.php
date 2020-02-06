@@ -50,17 +50,17 @@
                         <input type="number" min="1" class="form-control" id="personNum" name="personNum" value="{{ $p->personNum }}">
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-md-6">
-                        <label for="frequency">Frequency</label>
-                        <select class="form-control" name="frequency" id="frequency" required="required">
-                            <option value="One-time only" @if($p->frequency=='One-time only') selected='selected' @endif>One-time only</option>
-                            <option value="Weekly" @if($p->frequency=='Weekly') selected='selected' @endif>Weekly</option>
-                            <option value="Bi-weekly" @if($p->frequency=='Bi-weekly') selected='selected' @endif>Bi-weekly</option>
-                            <option value="Monthly" @if($p->frequency=='Monthly') selected='selected' @endif>Monthly</option>
-                        </select>
-                    </div>
-                </div>
+{{--                <div class="form-group">--}}
+{{--                    <div class="col-md-6">--}}
+{{--                        <label for="frequency">Frequency</label>--}}
+{{--                        <select class="form-control" name="frequency" id="frequency" required="required">--}}
+{{--                            <option value="One-time only" @if($p->frequency=='One-time only') selected='selected' @endif>One-time only</option>--}}
+{{--                            <option value="Weekly" @if($p->frequency=='Weekly') selected='selected' @endif>Weekly</option>--}}
+{{--                            <option value="Bi-weekly" @if($p->frequency=='Bi-weekly') selected='selected' @endif>Bi-weekly</option>--}}
+{{--                            <option value="Monthly" @if($p->frequency=='Monthly') selected='selected' @endif>Monthly</option>--}}
+{{--                        </select>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
                 <div class="form-group">
                     <div class="col-md-6">
                         <label for="description">Description</label>

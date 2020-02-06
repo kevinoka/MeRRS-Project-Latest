@@ -29,35 +29,18 @@
                         <div class="inner">
                             @if (!empty($results) && count($results) > 0)
                                 @foreach($results as $rslt)
-                                    <h1>{{ $rslt->room }}</h1>
+                                    <h1>{{ $rslt->status }}</h1>
                                 @endforeach
                             @endif
                             <p>Request</p>
                         </div>
                         <div class="icon">
-                            <i class="fas fa-users"></i>
+                            <i class="fas fa-inbox"></i>
                         </div>
-                        <a class="small-box-footer" style="cursor: context-menu;">Main Meeting Room </a>
+                        <a class="small-box-footer" style="cursor: context-menu;">Pending</a>
                     </div>
                 </div>
                 <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-success">
-                        <div class="inner">
-                            @if (!empty($results) && count($results) > 0)
-                                @foreach($results as $rslt)
-                                    <h1>{{ $rslt->room }}</h1>
-                                @endforeach
-                            @endif
-                            <p>Request</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <a class="small-box-footer" style="cursor: context-menu;">Small Meeting Room</a>
-                    </div>
-                </div>
 
             </div>
             <!-- /.row -->
@@ -76,7 +59,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Schedule</h1>
+                    <h1 class="m-0 text-dark">Calendar</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -120,13 +103,13 @@
                         <div class="form-group">
                             <label for="start">Start Date &amp; Time</label>
                             <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                                <input type="text" name="start" class="form-control datetimepicker-input" data-target="#datetimepicker1" data-toggle="datetimepicker" placeholder="Start date" autocomplete="off"/>
+                                <input type="text" name="start" class="form-control datetimepicker-input" data-target="#datetimepicker1" data-toggle="datetimepicker" placeholder="Start date" autocomplete="off" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="end">End Date &amp; Time</label>
                             <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
-                                <input type="text" name="end" class="form-control datetimepicker-input" data-target="#datetimepicker2" data-toggle="datetimepicker" placeholder="End date" autocomplete="off"/>
+                                <input type="text" name="end" class="form-control datetimepicker-input" data-target="#datetimepicker2" data-toggle="datetimepicker" placeholder="End date" autocomplete="off" required/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -136,8 +119,8 @@
                         <div class="form-group">
                             <label for="room" class="col-form-label">Room</label>
                             <div class="form-group">
-                                <select class="form-control" name="room" required="required">
-                                    <option value="Select the room" disabled="disabled" selected>Select the meeting room...</option>
+                                <select class="form-control" name="room" required>
+                                    <option value="" disabled="disabled" selected>Select the meeting room...</option>
                                     <option value="Main Meeting Room">Main Meeting Room</option>
                                     <option value="Small Meeting Room">Small Meeting Room</option>
                                 </select>
@@ -147,18 +130,18 @@
                             <label for="personNum" class="col-form-label">Number of Person</label>
                             <input type="number" min="1" class="form-control" name="personNum" value="{{ old('personNum') }}" placeholder="Number of person" required>
                         </div>
-                        <div class="form-group">
-                            <label for="frequency" class="col-form-label">Frequency</label>
-                            <div class="form-group">
-                                <select class="form-control" name="frequency" required>
-                                    <option value="Select the room" disabled="disabled" selected>Select the meeting frequency...</option>
-                                    <option value="One-time only">One-time only</option>
-                                    <option value="Weekly">Weekly</option>
-                                    <option value="Bi-weekly">Bi-weekly</option>
-                                    <option value="Monthly">Monthly</option>
-                                </select>
-                            </div>
-                        </div>
+{{--                        <div class="form-group">--}}
+{{--                            <label for="frequency" class="col-form-label">Frequency</label>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <select class="form-control" name="frequency" required>--}}
+{{--                                    <option value="" disabled="disabled" selected>Select the meeting frequency...</option>--}}
+{{--                                    <option value="One-time only">One-time only</option>--}}
+{{--                                    <option value="Weekly">Weekly</option>--}}
+{{--                                    <option value="Bi-weekly">Bi-weekly</option>--}}
+{{--                                    <option value="Monthly">Monthly</option>--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="form-group">
                             <label for="description" class="col-form-label">Description</label>
                             <textarea class="form-control" name="description" placeholder="Describe the meeting" required></textarea>

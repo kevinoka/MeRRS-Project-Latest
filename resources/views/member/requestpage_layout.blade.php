@@ -36,7 +36,6 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 
     <!-- Bootstrap 4 and  Tempus Dominus -->
-
   <link href={{asset('css/style.css')}} rel='stylesheet' />
 
 

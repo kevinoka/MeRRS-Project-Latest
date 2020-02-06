@@ -67,7 +67,6 @@ class RequestPageController extends Controller
             'title' => 'required|max:255',
             'room' => 'required',
             'personNum' => 'required|numeric',
-            'frequency' => 'required|max:255',
             'description' => 'required|max:255',
             'requestedBy' => 'required',
         ]);
@@ -78,7 +77,7 @@ class RequestPageController extends Controller
         $data->title = $request->title;
         $data->room = $request->room;
         $data->personNum = $request->personNum;
-        $data->frequency = $request->frequency;
+        //$data->frequency = $request->frequency;
         $data->description = $request->description;
         $data->requestedBy = $request->requestedBy;
         //$data->status = $request->status;
@@ -133,7 +132,13 @@ class RequestPageController extends Controller
     {
         //
         $data = RequestPage::where('id',$id)->first();
-        $data->forceDelete();
+        if($data->status == 0)
+        {
+            $data->status = 4;
+            $data->forceDelete();
+        } else {
+            $data->forceDelete();
+        }
         return redirect()->route('requestpage.index')->with('alert-success','Request has been deleted!');
     }
 

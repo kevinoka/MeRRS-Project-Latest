@@ -14,22 +14,12 @@ class DashboardController extends Controller
     public function index()
     {
         $results = DB::table('request')//->select('room')->count();
-        ->select(DB::raw('count(*) as room'))
-            ->where('room', '<>',  1)
+        ->select(DB::raw('count(*) as status'))
+            ->where('status', '=', 0)
+            ->whereNull('deleted_at')
             ->get();
         return view('admin.dashboard',compact('results'));
     }
-
-//    public function hitung()
-//    {
-//        $users = DB::table('users')
-//            ->select(DB::raw('count(*) as room'))
-//            ->where('room', 'Small Meeting Room', 1)
-//            ->groupBy('room')
-//            ->get();
-//        return view('admin.dashboard',compact('users'));
-//    }
-
 
     /**
      * Show the form for creating a new resource.
@@ -55,9 +45,8 @@ class DashboardController extends Controller
             'start' => 'required',
             'end' => 'required',
             'title' => 'required|max:255',
-            'room' => 'required',
+            'room' => 'required|in:Main Meeting Room,Small Meeting Room',
             'personNum' => 'required|numeric',
-            'frequency' => 'required|max:255',
             'description' => 'required|max:255',
             'requestedBy' => 'required',
         ]);
@@ -68,11 +57,10 @@ class DashboardController extends Controller
         $data->title = $request->title;
         $data->room = $request->room;
         $data->personNum = $request->personNum;
-        $data->frequency = $request->frequency;
+        //$data->frequency = $request->frequency;
         $data->description = $request->description;
         $data->requestedBy = $request->requestedBy;
         //$data->status = $request->status;
-        //$data->save();
         Auth::user()->requests()->save($data);
         return redirect()->route('admin.dashboard.index')->with('alert-success','Request has been submitted!');
     }

@@ -7,7 +7,7 @@ jQuery(document).ready(function(){
             }
         });
         jQuery.ajax({
-            url: "admin.dashboard.blade.php",
+            url: "dashboard.blade.php",
             method: 'post',
             data: $('form.newRequestForm').serialize(),
             success: function(result){

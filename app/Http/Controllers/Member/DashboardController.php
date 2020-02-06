@@ -3,6 +3,7 @@
 namespace MeRRS\Http\Controllers\Member;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use MeRRS\Home;
 use MeRRS\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -16,6 +17,18 @@ class DashboardController extends Controller
         return view('member.dashboard',compact('data'));
     }
 
+//    public static function counting()
+//    {
+//        $userId = Auth::user()->id;
+//        //$results = RequestPage::where('user_id',$userId)->get();
+//        $results = DB::table('request')//->select('room')->count();
+//        ->select(DB::raw('count(*) as status'))
+//            ->where('user_id',$userId)
+//            ->where('status', '=', 0)
+//            ->whereNull('deleted_at')
+//            ->get();
+//        return view('admin.dashboard',compact('results'));
+//    }
 
     /**
      * Show the form for creating a new resource.
@@ -42,7 +55,6 @@ class DashboardController extends Controller
             'title' => 'required|max:255',
             'room' => 'required',
             'personNum' => 'required|numeric',
-            'frequency' => 'required|max:255',
             'description' => 'required|max:255',
             'requestedBy' => 'required',
         ]);
@@ -53,7 +65,7 @@ class DashboardController extends Controller
         $data->title = $request->title;
         $data->room = $request->room;
         $data->personNum = $request->personNum;
-        $data->frequency = $request->frequency;
+       // $data->frequency = $request->frequency;
         $data->description = $request->description;
         $data->requestedBy = $request->requestedBy;
         //$data->status = $request->status;

@@ -78,7 +78,7 @@
                             <label for="room" class="col-form-label">Room</label>
                             <div class="form-group">
                                 <select class="form-control" name="room" required="required">
-                                    <option value="Select the room" disabled="disabled" selected>Select the meeting room...</option>
+                                    <option value="" disabled="disabled" selected>Select the meeting room...</option>
                                     <option value="Main Meeting Room">Main Meeting Room</option>
                                     <option value="Small Meeting Room">Small Meeting Room</option>
                                 </select>
@@ -88,18 +88,18 @@
                             <label for="personNum" class="col-form-label">Number of Person</label>
                             <input type="number" min="1" class="form-control" name="personNum" placeholder="Number of person">
                         </div>
-                        <div class="form-group">
-                            <label for="frequency" class="col-form-label">Frequency</label>
-                            <div class="form-group">
-                                <select class="form-control" name="frequency" required="required">
-                                    <option value="Select the room" disabled="disabled" selected>Select the meeting frequency...</option>
-                                    <option value="One-time only">One-time only</option>
-                                    <option value="Weekly">Weekly</option>
-                                    <option value="Bi-weekly">Bi-weekly</option>
-                                    <option value="Monthly">Monthly</option>
-                                </select>
-                            </div>
-                        </div>
+{{--                        <div class="form-group">--}}
+{{--                            <label for="frequency" class="col-form-label">Frequency</label>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <select class="form-control" name="frequency" required="required">--}}
+{{--                                    <option value="Select the room" disabled="disabled" selected>Select the meeting frequency...</option>--}}
+{{--                                    <option value="One-time only">One-time only</option>--}}
+{{--                                    <option value="Weekly">Weekly</option>--}}
+{{--                                    <option value="Bi-weekly">Bi-weekly</option>--}}
+{{--                                    <option value="Monthly">Monthly</option>--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="form-group">
                             <label for="description" class="col-form-label">Description</label>
                             <textarea class="form-control" name="description" required="required" placeholder="Describe the meeting"></textarea>

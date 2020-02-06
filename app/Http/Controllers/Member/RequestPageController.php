@@ -23,14 +23,6 @@ class RequestPageController extends Controller
 
     }
 
-//    public function requestedByTable()
-//    {
-//        $data = DB::table('users')
-//            ->where('name', '<>', 1)
-//            ->get();
-//        return view('member.requestpage.index',compact('data'));
-//    }
-
     /**
      * Display the specified resource.
      *
@@ -71,7 +63,6 @@ class RequestPageController extends Controller
             'title' => 'required|max:255',
             'room' => 'required',
             'personNum' => 'required|numeric',
-            'frequency' => 'required|max:255',
             'description' => 'required|max:255',
             'requestedBy' => 'required',
         ]);
@@ -82,7 +73,7 @@ class RequestPageController extends Controller
         $data->title = $request->title;
         $data->room = $request->room;
         $data->personNum = $request->personNum;
-        $data->frequency = $request->frequency;
+        //$data->frequency = $request->frequency;
         $data->description = $request->description;
         $data->requestedBy = $request->requestedBy;
         //$data->status = $request->status;

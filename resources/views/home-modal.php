@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['dateFrom'])) {
+if (isset($_POST['start'])) {
     $start = $_POST['start'];
     $end = $_POST['end'];
     $title = $_POST['title'];

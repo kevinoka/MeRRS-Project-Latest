@@ -64,7 +64,7 @@
                 <th class="align-middle text-center">Title</th>
                 <th class="align-middle text-center">Room</th>
                 <th class="align-middle text-center">Num. of Person</th>
-                <th class="align-middle text-center">Freq</th>
+{{--                <th class="align-middle text-center">Freq</th>--}}
                 <th class="align-middle text-center">Description</th>
                 <!-- <th class="align-middle text-center">Requested by</th> -->
                 <th class="align-middle text-center">Status</th>
@@ -82,7 +82,7 @@
                         <td>{{ $req->title }}</td>
                         <td>{{ $req->room }}</td>
                         <td class="text-center">{{ $req->personNum }}</td>
-                        <td>{{ $req->frequency }}</td>
+{{--                        <td>{{ $req->frequency }}</td>--}}
                         <td>{{ $req->description }}</td>
                         <!-- <td>{{ $req->user->name }}</td> -->
                         <td class="text-center">
@@ -105,7 +105,6 @@
                                             onclick="false" disabled ><i class="fa fa-pencil"></i>&nbsp; Edit</button>
                                 @endif
                             </div>
-{{--                            <a href="{{ route('member.requestpage.edit',$req->id) }}" class="btn btn-sm btn-primary" style="margin-top: 4px; margin-bottom: 6px"><i class="fa fa-pencil-alt"></i>&nbsp; Edit</a>--}}
                             <a href="{{ route('member.requestpage.deletos',$req->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure want to delete this?')"><i class="fa fa-trash"></i>&nbsp; Delete</a>
 
                         </td>
@@ -122,7 +121,7 @@
                         "search": "Filter records:"
                     },
                     "columnDefs": [ {
-                        "targets": 9,
+                        "targets": 8,
                         "orderable": false
                     } ]
                 });
