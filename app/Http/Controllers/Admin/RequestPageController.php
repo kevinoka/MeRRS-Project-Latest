@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use MeRRS\Notifications\UserApprovedRequest;
 use MeRRS\RequestPage;
+use MeRRS\Subscriber;
 
 class RequestPageController extends Controller
 {
@@ -101,6 +102,13 @@ class RequestPageController extends Controller
             $data->save();
             //For sending an email
             $data->user->notify(new UserApprovedRequest($data));
+            //For sending an email to Aswin
+            $subscribers = Subscriber::all();
+            foreach ($subscribers as $subscriber)
+            {
+                Notification::route('mail',$subscriber->email)
+                    ->notify(new UserApprovedRequest($data));
+            }
         } else {
             Session::get('info');
         }

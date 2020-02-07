@@ -42,7 +42,7 @@ class UserApprovedRequest extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->from('operation.idxsti@gmail.com', 'MeRRS')
+                    ->from('operation@idxsti.co.id', 'MeRRS')
                     ->subject('Meeting Room Request Confirmation')
                     ->greeting('Hello, ' . $this->data->user->name )
                     ->line('The request you submitted has been approved.')
