@@ -3,10 +3,11 @@
 namespace MeRRS\Notifications;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class UserApprovedRequest extends Notification
+class UserApprovedRequest extends Notification implements ShouldQueue
 {
     use Queueable;
 
