@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use MeRRS\Notifications\UserApprovedRequest;
+use MeRRS\Notifications\UserDeclinedRequest;
 use MeRRS\RequestPage;
 use MeRRS\Subscriber;
 
@@ -116,13 +117,22 @@ class RequestPageController extends Controller
 
     }
 
-    public function declinal($id)
+    public function declination($id)
     {
         $data = RequestPage::find($id);
         if($data->status == 0)
         {
             $data->status = 2;
             $data->save();
+            //For sending an email
+            $data->user->notify(new UserDeclinedRequest($data));
+            //For sending an email to Aswin
+            $subscribers = Subscriber::all();
+            foreach ($subscribers as $subscriber)
+            {
+                Notification::route('mail',$subscriber->email)
+                    ->notify(new UserDeclinedRequest($data));
+            }
         } else {
             Session::get('info');
         }

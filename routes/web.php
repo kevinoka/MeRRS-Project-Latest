@@ -32,7 +32,7 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'
 
     Route::get('pending/requestpage', 'RequestPageController@pending')->name('requestpage.pending');
     Route::get('/requestpage/{id}/approve', 'RequestPageController@approval')->name('requestpage.approve');
-    Route::get('/requestpage/{id}/decline', 'RequestPageController@declinal')->name('requestpage.decline');
+    Route::get('/requestpage/{id}/decline', 'RequestPageController@declination')->name('requestpage.decline');
 });
 
 Route::group(['as'=>'member.','prefix'=>'member','namespace'=>'Member','middleware'=>['auth','member']], function () {
