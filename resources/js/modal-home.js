@@ -1,6 +1,6 @@
 jQuery(document).ready(function(){
     jQuery('#formSubmit').click(function(e){
-        e.preventDefault();
+        //e.preventDefault();
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
@@ -27,5 +27,7 @@ jQuery(document).ready(function(){
                     $('#newModal').modal('hide');
                 }
             }});
+            e.preventDefault();
+            e.unbind();
     });
 });
