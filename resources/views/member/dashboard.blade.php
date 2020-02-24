@@ -14,11 +14,6 @@
                     <h1 class="m-0 text-dark">Dashboard</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
-                <script>
-                    setTimeout(function() {
-                        $('#successMessage').fadeOut('slow');
-                    }, 5000); // <-- time in milliseconds
-                </script>
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -33,7 +28,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <div id="modalHomeButton">
-                            <li class="breadcrumb-item"><a class="btn btn-success" style="color: white; cursor: pointer;" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus-circle"></i>&nbsp; Make New Reservation</a></li>
+                            <li class="breadcrumb-item"><a class="btn btn-success" style="color: white; cursor: pointer;" data-toggle="modal" data-target="#newModal" id="open"><i class="fas fa-plus-circle"></i>&nbsp; Make New Reservation</a></li>
                         </div>
                     </ol>
                 </div><!-- /.col -->
@@ -46,9 +41,10 @@
     <link href={{asset('css/style.css')}} rel='stylesheet' />
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="newModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
+                <div class="alert alert-danger" style="display:none"></div>
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Make new reservation</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -56,28 +52,38 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    {{-- showing the error validation --}}
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <form class="newRequestForm" id="submit_button" action="{{ route('member.dashboard.store') }}" method="post">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="start">Start Date &amp; Time</label>
                             <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                                <input type="text" name="start" class="form-control datetimepicker-input" data-target="#datetimepicker1" data-toggle="datetimepicker" placeholder="Start date" autocomplete="off"/>
+                                <input type="text" name="start" class="form-control datetimepicker-input" data-target="#datetimepicker1" data-toggle="datetimepicker" placeholder="Start date" autocomplete="off" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="end">End Date &amp; Time</label>
                             <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
-                                <input type="text" name="end" class="form-control datetimepicker-input" data-target="#datetimepicker2" data-toggle="datetimepicker" placeholder="End date" autocomplete="off"/>
+                                <input type="text" name="end" class="form-control datetimepicker-input" data-target="#datetimepicker2" data-toggle="datetimepicker" placeholder="End date" autocomplete="off" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="title" class="col-form-label">Title</label>
-                            <input type="text" class="form-control" name="title" required="required" placeholder="Meeting Title">
+                            <input type="text" class="form-control" name="title" placeholder="Meeting Title" required>
                         </div>
                         <div class="form-group">
                             <label for="room" class="col-form-label">Room</label>
                             <div class="form-group">
-                                <select class="form-control" name="room" required="required">
+                                <select class="form-control" name="room" required>
                                     <option value="" disabled="disabled" selected>Select the meeting room...</option>
                                     <option value="Main Meeting Room">Main Meeting Room</option>
                                     <option value="Small Meeting Room">Small Meeting Room</option>
@@ -86,7 +92,7 @@
                         </div>
                         <div class="form-group">
                             <label for="personNum" class="col-form-label">Number of Person</label>
-                            <input type="number" min="1" class="form-control" name="personNum" placeholder="Number of person">
+                            <input type="number" min="1" class="form-control" name="personNum" placeholder="Number of person" required>
                         </div>
 {{--                        <div class="form-group">--}}
 {{--                            <label for="frequency" class="col-form-label">Frequency</label>--}}
@@ -102,7 +108,7 @@
 {{--                        </div>--}}
                         <div class="form-group">
                             <label for="description" class="col-form-label">Description</label>
-                            <textarea class="form-control" name="description" required="required" placeholder="Describe the meeting"></textarea>
+                            <textarea class="form-control" name="description" placeholder="Describe the meeting" required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="requestedBy" class="col-form-label">Requested by</label>
@@ -114,14 +120,9 @@
                         {{--          </div>--}}
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                            <button onclick="form_submit()" class="btn btn-primary">Submit</button>
+                            <button class="btn btn-primary" id="formSubmit">Submit</button>
                         </div>
                     </form>
-                    <script type="text/javascript">
-                        function form_submit() {
-                            document.getElementById("submit_button").submit();
-                        }
-                    </script>
                 </div>
             </div>
         </div>
@@ -156,8 +157,6 @@
                 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
-                <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-
                 <!-- jQuery -->
                 <script src={{asset('js/modal-home.js')}}></script>
 
@@ -172,10 +171,10 @@
         </div>
     </section>
 
-{{--    <script>--}}
-{{--        $(document).ready(function(){--}}
-{{--            $('#successMessage').fadeIn().delay(5000).fadeOut('slow');--}}
-{{--        });--}}
-{{--    </script>--}}
+    <script>
+        setTimeout(function() {
+            $('#successMessage').fadeOut('slow');
+        }, 5000); // <-- time in milliseconds
+    </script>
 
 @endsection

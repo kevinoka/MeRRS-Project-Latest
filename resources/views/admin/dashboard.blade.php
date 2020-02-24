@@ -156,7 +156,6 @@
                         {{--          </div>--}}
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-{{--                            <button class="btn btn-primary" id="formSubmit">Submit</button>--}}
                             <button class="btn btn-primary" id="formSubmit">Submit</button>
                         </div>
                     </form>

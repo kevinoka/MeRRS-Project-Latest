@@ -38,10 +38,6 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 
-  <!-- For modal bootstrap post -->
-  <script src="https://code.jquery.com/jquery-3.4.1.js"
-          integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-          crossorigin="anonymous"></script>
 
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://rawgit.com/tempusdominus/bootstrap-4/master/build/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
@@ -197,6 +193,12 @@
     <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('dist/js/adminlte.js') }}"></script>
+
+    {{--    <!-- For modal bootstrap post -->--}}
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- For the Tempusdominus datetimepicker -->
 {{--    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>--}}
