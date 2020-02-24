@@ -32,12 +32,12 @@
     <!-- summernote -->
     <link href={{asset('plugins/summernote/summernote-bs4.css')}} rel='stylesheet' />
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-
     <!-- Bootstrap 4 and  Tempus Dominus -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://rawgit.com/tempusdominus/bootstrap-4/master/build/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 
 </head>

@@ -2,10 +2,6 @@
 
 @section('content')
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
-<link href={{asset('css/style.css')}} rel='stylesheet' />
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
@@ -102,7 +98,7 @@
 
                                 @else
                                     <button type="button" class="btn btn-outline-info btn-sm" style="margin-bottom: 4px; margin-top: 4px; cursor: default"
-                                            onclick="false" disabled ><i class="fa fa-pencil"></i>&nbsp; Edit</button>
+                                            onclick="false" disabled ><i class="fa fa-pencil-alt"></i>&nbsp; Edit</button>
                                 @endif
                             </div>
                             <a href="{{ route('member.requestpage.deletos',$req->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure want to delete this?')"><i class="fa fa-trash"></i>&nbsp; Delete</a>
