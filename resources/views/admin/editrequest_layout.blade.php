@@ -152,7 +152,7 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <b>Copyright &copy; 2019 <a href="http://idxsti.co.id">IDXSTI</a>.</b>
+        <b>Copyright &copy; 2019 <a href="http://idxsti.co.id" target="_blank" rel="noopener noreferrer">IDXSTI</a>.</b>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> 1.1.0

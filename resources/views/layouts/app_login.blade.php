@@ -12,18 +12,9 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <!-- Styles -->
-    <!-- <style>
-        html, body {
-            background-image: url("/img/bg-image2.png");
-            background-size: cover;
-            margin: 0;
-        }
-    </style> -->
 </head>
 
 <body>

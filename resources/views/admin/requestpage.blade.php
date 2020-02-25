@@ -56,9 +56,9 @@
             <thead>
             <tr>
                 <th class="align-middle text-center" style="table-layout: fixed; width: 8%;">Num</th>
-                <th class="align-middle text-center" style="max-width: 275px; word-wrap: break-word;">Start</th>
-                <th class="align-middle text-center" style="max-width: 275px; word-wrap: break-word;">End</th>
-                <th class="align-middle text-center">Title</th>
+                <th class="align-middle text-center" style="width: 12%; word-wrap: break-word;">Start</th>
+                <th class="align-middle text-center" style="width: 12%; word-wrap: break-word;">End</th>
+                <th class="align-middle text-center" style="width: 15%;">Title</th>
                 <th class="align-middle text-center">Room</th>
                 <th class="align-middle text-center">Person Qty</th>
 {{--                <th class="align-middle text-center">Freq</th>--}}
