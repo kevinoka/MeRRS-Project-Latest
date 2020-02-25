@@ -59,7 +59,7 @@
                 <th class="align-middle text-center" style="max-width: 275px; word-wrap: break-word;">End</th>
                 <th class="align-middle text-center">Title</th>
                 <th class="align-middle text-center">Room</th>
-                <th class="align-middle text-center">Num. of Person</th>
+                <th class="align-middle text-center">Person Qty</th>
 {{--                <th class="align-middle text-center">Freq</th>--}}
                 <th class="align-middle text-center">Description</th>
                 <!-- <th class="align-middle text-center">Requested by</th> -->

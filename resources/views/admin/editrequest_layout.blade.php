@@ -52,7 +52,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
             </li>
             <li>
-                <a class="nav-link" style="cursor: context-menu;">Meeting Room Reservation System </a>
+                <a class="nav-link" style="cursor: context-menu; color: #515151">Meeting Room Reservation System </a>
             </li>
         </ul>
 
@@ -155,7 +155,7 @@
         <b>Copyright &copy; 2019 <a href="http://idxsti.co.id">IDXSTI</a>.</b>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 1.0.0
+            <b>Version</b> 1.1.0
         </div>
     </footer>
 
