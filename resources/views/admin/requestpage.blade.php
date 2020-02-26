@@ -52,7 +52,7 @@
 <!-- Main Table -->
 <div class="content-header">
     <div class="container">
-        <table id="dataTables" class="table table-striped table-bordered" style="width: 100%">
+        <table id="dataTables" class="table table-striped table-bordered dt-responsive" width="100%">
             <thead>
             <tr>
                 <th class="align-middle text-center" style="table-layout: fixed; width: 8%;">Num</th>
@@ -134,6 +134,7 @@
         <script>
             $(document).ready(function() {
                 $('#dataTables').DataTable({
+                    "responsive": true,
                     "language": {
                         "search": "Filter records:"
                     },

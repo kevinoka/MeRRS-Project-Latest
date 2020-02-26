@@ -219,17 +219,28 @@
             $('#datetimepicker1').datetimepicker({
                 format: 'YYYY-MM-DD HH:mm',
                 autoclose: true,
+                minDate: new Date(),
                 daysOfWeekDisabled: [0],
                 startDate: today,
-                useCurrent: false
+                useCurrent: false,
+                icons: {
+                    time: "fas fa-clock",
+                }
             });
             var today = new Date();
             $('#datetimepicker2').datetimepicker({
                 format: 'YYYY-MM-DD HH:mm',
                 autoclose: true,
+                minDate: new Date(),
                 daysOfWeekDisabled: [0],
                 startDate: today,
-                useCurrent: false
+                useCurrent: false,
+                icons: {
+                    time: "fas fa-clock",
+                }
+            });
+            $("#datetimepicker1").on("change.datetimepicker", function (e) {
+                $('#datetimepicker2').datetimepicker('minDate', e.date);
             });
         });
 

@@ -188,13 +188,9 @@
 
 <!-- Datetimepicker and else -->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-
 <script src="https://rawgit.com/tempusdominus/bootstrap-4/master/build/js/tempusdominus-bootstrap-4.min.js"></script>
 
 </body>
@@ -202,13 +198,26 @@
 <script>
 
     $(function() {
+        var today = new Date();
         $('#datetimepicker1').datetimepicker({
             format: 'YYYY-MM-DD HH:mm',
-            autoclose: true
+            minDate: new Date(),
+            autoclose: true,
+            icons: {
+                time: "fas fa-clock",
+            }
         });
+        var today = new Date();
         $('#datetimepicker2').datetimepicker({
             format: 'YYYY-MM-DD HH:mm',
-            autoclose: true
+            minDate: new Date(),
+            autoclose: true,
+            icons: {
+                time: "fas fa-clock",
+            }
+        });
+        $("#datetimepicker1").on("change.datetimepicker", function (e) {
+            $('#datetimepicker2').datetimepicker('minDate', e.date);
         });
     });
 
