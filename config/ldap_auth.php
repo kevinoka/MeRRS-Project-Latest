@@ -293,7 +293,7 @@ return [
 
         'username' => 'sAMAccountName',
 
-        // 'email' => 'userPrincipalName',
+        'email' => 'mail',
 
     ],
 
