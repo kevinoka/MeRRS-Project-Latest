@@ -126,13 +126,6 @@ class RequestPageController extends Controller
             $data->save();
             //For sending an email
             $data->user->notify(new UserDeclinedRequest($data));
-            //For sending an email to Aswin
-            $subscribers = Subscriber::all();
-            foreach ($subscribers as $subscriber)
-            {
-                Notification::route('mail',$subscriber->email)
-                    ->notify(new UserDeclinedRequest($data));
-            }
         } else {
             Session::get('info');
         }

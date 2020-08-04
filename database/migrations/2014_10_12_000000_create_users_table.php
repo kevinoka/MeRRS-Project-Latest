@@ -20,8 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('usertype')->default('user');
             $table->string('username')->unique();
-            $table->string('email');
-            $table->timestamp('email_for_notif')->nullable();
+            $table->string('email')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
